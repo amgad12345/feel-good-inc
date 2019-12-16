@@ -5,11 +5,12 @@ import Page2 from './pages/Page2'
 import HomePage from './pages/HomePage'
 import NotFound from './pages/NotFound'
 
+
 const App = () => {
   return (
     <Router>
       <header>
-        <h1>Welcome to my SPA</h1>
+        <h1>Feel Good Inc.</h1>
         <nav>
           <ul>
             <li>

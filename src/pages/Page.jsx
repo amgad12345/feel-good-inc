@@ -1,7 +1,7 @@
 import React from 'react'
-
+import SignUp from '../components/SignUp'
 const Page = () => {
-  return <div>This is a Page</div>
+  return <SignUp/>
 }
 
 export default Page
