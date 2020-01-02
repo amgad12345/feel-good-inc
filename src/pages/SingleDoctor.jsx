@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-
+//import Moment from 'react-moment'
 const SingleDoctor = props => {
   const [doctor, GetDoctor] = useState([])
   const [appDate, SetAppDate] = useState('')
@@ -13,7 +13,7 @@ const SingleDoctor = props => {
     console.log('doctor id ' + props.match.params.id)
     const resp = await axios.get(
       `https://localhost:5001/api/Doctor/${props.match.params.id}`
-    )
+    ) 
 
     GetDoctor(resp.data)
   }
@@ -22,7 +22,7 @@ const SingleDoctor = props => {
     const resp = await axios.post(
       'https://localhost:5001/api/AppointmentForm',
       {
-        AppointmentDate: appDate,
+    //    AppointmentDate: Moment(appDate).format('YYYY/MM/DD HH:mm'),
         Discription: discrip,
         Email: emaill,
         LastNanme: lastN,
@@ -44,19 +44,17 @@ const SingleDoctor = props => {
   }, [])
 
   return (
-    <div  className = "doctors2">
-      
-      
-        <h1 className = "doctors_name">{doctor.name}</h1>
-        <h4 className = "doctors_info">doctor type: {doctor.type}</h4>
-        <h4>doctor phoneNumber: {doctor.phoneNumber}</h4>
-        <h4>doctor email: {doctor.email}</h4>
-        <h4>doctor adress: {doctor.adress}</h4>
-        <h4>doctor review: {doctor.review}</h4>
-        
+    <div className="doctors2">
+      <h1 className="doctors_name">{doctor.name}</h1>
+      <h4 className="doctors_info">doctor type: {doctor.type}</h4>
+      <h4>doctor phoneNumber: {doctor.phoneNumber}</h4>
+      <h4>doctor email: {doctor.email}</h4>
+      <h4>doctor adress: {doctor.adress}</h4>
+      <h4>doctor review: {doctor.review}</h4>
+
       <section>
         <h1>Make Appointment</h1>
-       
+
         <input
           className="inp"
           type="text"
@@ -65,7 +63,7 @@ const SingleDoctor = props => {
           value={emaill}
           onChange={e => SetEmail(e.target.value)}
         />
-        
+
         <input
           className="inp"
           type="text"
@@ -82,9 +80,9 @@ const SingleDoctor = props => {
           value={appDate}
           onChange={e => SetAppDate(e.target.value)}
         />
-        <h1>Reason For Visit{' '}</h1>
-        <textarea 
-          cols="40" 
+        <h1>Reason For Visit </h1>
+        <textarea
+          cols="40"
           rows="5"
           className="reason"
           type="text"
@@ -92,28 +90,31 @@ const SingleDoctor = props => {
           onChange={e => SetDiscrip(e.target.value)}
         />
         <section>
-        {doctor.appointmentForms &&
-          (doctor.appointmentForms.length > 0 ? (
-            <ul>
-              {doctor.appointmentForms.map(appointment => {
-                return <p>
-                  your appointment has been set see you on
-                  <br></br> 
-                 <h4>{appDate}</h4> 
-                </p>
-                        
-              })}
-            </ul>
-          ) : (
-            ""
-          ))}
-      </section>
-        <button className= "submit_appointment" onClick={sendAppointmenFormToApi}>
+          {doctor.appointmentForms &&
+            (doctor.appointmentForms.length > 0 ? (
+              <ul>
+                {doctor.appointmentForms.map(appointment => {
+                  return (
+                    <p>
+                      your appointment has been set see you on
+                      <br></br>
+                      <h4>{appDate}</h4>
+                    </p>
+                  )
+                })}
+              </ul>
+            ) : (
+              ''
+            ))}
+        </section>
+        <button
+          className="submit_appointment"
+          onClick={sendAppointmenFormToApi}
+        >
           submit appointment Request
         </button>
       </section>
     </div>
-    
   )
 }
 
