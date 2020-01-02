@@ -1,37 +1,198 @@
+@import url('https://fonts.googleapis.com/css?family=Courier+Prime|Girassol|Merriweather|Open+Sans|PT+Sans+Narrow|Roboto+Slab|Ubuntu&display=swap|Source+Sans+Pro');
+
 :root {
   font: 16px / 1 sans-serif;
 }
 
 html {
-  height: 100%;
-  background-color: #56baed;
+  background: url('components\images\hospital.jpg') no-repeat center center
+    fixed;
+  background-size: cover;
+  position: relative;
 }
 
 body {
   margin: 0;
   min-height: 100%;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   height: 100vh;
+  position: relative;
 }
-
 
 h5 {
   color: #0d0d0d;
-
 }
 
-h1{
-  text-align: center; 
+h1 {
+  text-align: center;
 }
 
 
-nav {
+p {
+  font-weight: bold;
+}
+
+.doctors_name {
+  font-family: 'Merriweather';
+  margin-bottom: 2rem;
+}
+
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgba(253, 254, 254);
+  color: black;
+  border-right: 0.5px solid rgba(95, 186, 233, 0.8);
+  align-items: center;
+  text-decoration: none;
+  margin-bottom: 4rem;
+  padding-bottom: 0px;
+  height: 75px;
+}
+
+.feel_good{
+  font-family: 'Merriweather';
+}
+
+.faSignInAlt{
+  margin-left: 5px;
+  font-size: 1.3rem;
+  color: #007dc1;
+}
+
+.faCalendarCheck{
+  color: #12374b;
+  margin-left: 10px;
+  margin-bottom: 1px;
+  font-size: 1.5rem;
+}
+
+.Make_Appointment{
+  font-size: 1rem;
+  font-weight: bold;
+  color: #060d11;
+  text-decoration: underline;
   
-    display: none;
+}
 
+.patient_info{
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.doctors .Make_Appointment :hover {
+  text-decoration: underline;
 }
 
 
+.faUserMd{
+  font-size: 4rem;
+  margin-top: 2rem;
+  color: #007dc1;
+}
+
+.faUserPlus {
+  font-size: 4rem;
+  margin-top: 2rem;
+  color: #007dc1; 
+  margin-left: 15px;
+}
+
+
+nav ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  list-style: none;
+  text-decoration: none;
+  align-items: center;
+  color: black;
+}
+
+nav li {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  border-right: 0.5px solid rgb(143, 140, 140);
+  font-weight: bold;
+  color: black;
+}
+
+a {
+  vertical-align: middle;
+  color: black;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+h4 {
+  padding-right: 10px;
+  padding-left: 10px;
+  vertical-align: middle;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100vmax;
+  height: 2.5rem;
+  display: inline-flex;
+  justify-content: center;
+  z-index: 1;
+  padding-bottom: 0.7rem;
+  align-content: center;
+  background-color: rgba(253, 254, 254, 0.7);
+  overflow: hidden;
+  height: 40px;
+}
+
+.social_container{
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  left: 2em;
+  
+}
+
+.Follow {
+  padding-right: 10px;
+}
+
+.middle{
+ 
+  display: flex;
+  flex-direction: row;
+}
+
+footer :hover {
+  text-decoration: underline;
+}
+
+.sign_in {
+  font-size: 1rem;
+  margin-right: 10px;
+}
+
+.sign_up {
+  font-size: 1rem;
+}
+
+.type_of_doc {
+  margin-bottom: 3rem;
+}
+
+.submit_appointment_btn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 button {
   background-color: #56baed;
@@ -43,8 +204,8 @@ button {
   display: inline-block;
   text-transform: uppercase;
   font-size: 13px;
-  -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
-  box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+  -webkit-box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+  box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   margin: 5px 20px 40px 20px;
@@ -55,17 +216,88 @@ button {
   transition: all 0.3s ease-in-out;
 }
 
+.doctors_container .myButton {
+  box-shadow: inset 0px 1px 0px 0px #54a3f7;
+  background: linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+  background-color: #007dc1;
+  border-radius: 3px;
+  border: 1px solid #124d77;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 16px;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #154682;
+}
+.myButton:hover {
+  background: linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+  background-color: #0061a7;
+}
+.myButton:active {
+  position: relative;
+  top: 1px;
+}
+
+.submit_appointment {
+  display: block;
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .container {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  flex-direction: column; 
+  flex-direction: column;
   justify-content: center;
   width: 100%;
   min-height: 100%;
-  padding: 20px;
 }
 
+.doctors {
+  background-color: rgba(95, 186, 233, 0.8);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 0.5px;
+  padding-bottom: 1rem;
+  padding-left: 0.5rem;
+  width: 90%;
+  max-width: 450px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.doctors2 {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(201, 223, 235, 0.8);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-right: 0.45rem;
+  padding-top: 0.5px;
+  padding-bottom: 1rem;
+  max-width: 460px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  justify-content: space-around;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.floor4 footer {
+  display: none;
+  }
+
+.doctors2 section {
+  padding-left: 0.4rem;
+}
 
 .white {
   -webkit-border-radius: 10px 10px 10px 10px;
@@ -76,30 +308,28 @@ button {
   max-width: 450px;
   position: relative;
   padding: 0px;
-  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
   text-align: center;
 }
 
-#email{
+#email {
   -webkit-animation-delay: 0.6s;
   -moz-animation-delay: 0.6s;
   animation-delay: 0.6s;
 }
 
-
-input{
-  background-color: rgba(95,186,233,0.4);
+input {
+  background-color: rgba(95, 186, 233, 0.4);
   border: none;
   color: rgb(19, 9, 9);
   padding: 15px 80px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   text-transform: uppercase;
   font-size: 13px;
-  -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
-  box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+  -webkit-box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+  box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   margin: 5px 20px 20px 20px;
@@ -108,4 +338,30 @@ input{
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+}
+
+textarea {
+  height: 10rem;
+  width: 26rem;
+  border: none;
+  text-align: start;
+  text-transform: none;
+  font-size: 17px;
+  background-color: rgba(95, 186, 233, 0.4);
+  padding: 5px;
+  -webkit-box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+  box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  margin: 5px 10px 20px 10px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  resize: none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3rem;
 }

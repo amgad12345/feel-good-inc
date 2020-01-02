@@ -1,7 +1,8 @@
 import React from 'react'
+import Pickdoctor from '../components/Pickdoctor'
 
 const Page2 = () => {
-  return <div>This is another Page</div>
+  return <Pickdoctor/>
 }
 
 export default Page2
