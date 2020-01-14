@@ -10,7 +10,7 @@ const Page17 = () => {
     console.log('about to call api')
 
     const resp = await axios.get(
-      'https://localhost:5001/api/Doctor/getdent/Nephrologist'
+      'https://localhost:5001/api/Doctor/gettype/Nephrologist'
     )
     const response = resp.data
     GetNephrologist(resp.data)

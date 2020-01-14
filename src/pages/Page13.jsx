@@ -10,7 +10,7 @@ const Page13= () => {
     console.log('about to call api')
 
     const resp = await axios.get(
-      'https://localhost:5001/api/Doctor/getdent/Internist'
+      'https://localhost:5001/api/Doctor/gettype/Internist'
     )
     const response = resp.data
     GetInternists(resp.data)

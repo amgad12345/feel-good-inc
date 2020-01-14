@@ -21,16 +21,9 @@ import Page18 from './pages/Page18'
 import SingleDoctor from './pages/SingleDoctor'
 import HomePage from './pages/HomePage'
 import NotFound from './pages/NotFound'
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-//import '../node_modules/font-awesome/css/font-awesome.min.css';
-import { library } from '@fortawesome/fontawesome-svg-core';
-//import { FaInstagram, faKey } from '@fortawesome/free-solid-svg-icons';
-import { render } from "react-dom";
-//import { library } from '@fortawesome/fontawesome-svg-core'
-//import { faCoffeeCoffee } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-//library.add(FaInstagram, faKey);
+import Secret from './pages/Secret'
+import Unauthed from './pages/Unauthed'
+
 
 
 
@@ -83,6 +76,8 @@ const App = () => {
         <Route exact path="/16" component={Page16}></Route>
         <Route exact path="/17" component={Page17}></Route>
         <Route exact path="/18" component={Page18}></Route>
+        <Route exact path="/secret/:username" component={Secret}></Route>
+        <Route exact path="/unauth" component={Unauthed}></Route>
         <Route exact path="/SingleDoctor/:id" component={SingleDoctor}></Route>
         <Route path="*" component={NotFound}></Route>
       </Switch>

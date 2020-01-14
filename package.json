@@ -34,6 +34,7 @@
     "stylelint-config-standard": "^19.0.0"
   },
   "dependencies": {
+    "@babel/traverse": "^7.7.4",
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
     "@fortawesome/react-fontawesome": "^0.1.8",

@@ -13,6 +13,7 @@ html {
 
 body {
   margin: 0;
+  
   min-height: 100%;
   font-family: 'Open Sans', sans-serif;
   height: 100vh;
@@ -47,9 +48,9 @@ header {
   border-right: 0.5px solid rgba(95, 186, 233, 0.8);
   align-items: center;
   text-decoration: none;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   padding-bottom: 0px;
-  height: 75px;
+  height: 40px;
 }
 
 .feel_good{
@@ -114,17 +115,20 @@ nav ul {
 }
 
 nav li {
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   padding-right: 1rem;
   padding-left: 1rem;
   border-right: 0.5px solid rgb(143, 140, 140);
   font-weight: bold;
+  font-size: 0.8rem;
   color: black;
+  
+  ;
 }
 
 a {
-  vertical-align: middle;
+
   color: black;
 }
 
@@ -141,16 +145,18 @@ h4 {
 footer {
   position: absolute;
   bottom: 0;
-  width: 100vmax;
-  height: 2.5rem;
+  width:100%;
+  height: 0.8rem;
   display: inline-flex;
   justify-content: center; 
   z-index: 1;
-  padding-bottom: 0.7rem;
-  align-content: center;
-  background-color: rgba(253, 254, 254, 0.7);
+  padding-bottom: 0.8rem;
   overflow: hidden;
-  height: 40px;
+  margin-bottom: -1rem;
+  background-color: rgba(253, 254, 254, 0.7);
+  ;
+  height: 35px;
+  vertical-align: middle;
 }
 
 .social_container{
@@ -171,8 +177,13 @@ footer {
   flex-direction: row;
 }
 
-footer :hover {
+
+.mid :hover {
   text-decoration: underline;
+}
+
+.social_icons :hover {
+font-size: 1.1rem;
 }
 
 .sign_in {
@@ -193,6 +204,8 @@ footer :hover {
   margin-left: auto;
   margin-right: auto;
 }
+
+
 
 button {
   background-color: #56baed;
@@ -240,6 +253,7 @@ button {
   top: 1px;
 }
 
+
 .submit_appointment {
   display: block;
   margin-top: 1rem;
@@ -254,7 +268,7 @@ button {
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  min-height: 100%;
+  
 }
 
 .doctors {
@@ -304,14 +318,34 @@ button {
   border-radius: 10px 10px 10px 10px;
   background: #fff;
   padding: 30px;
-  width: 90%;
-  max-width: 450px;
+  width: 330px;
+  height: 100%;
+  margin-right: 3rem;
+  margin-top: 2.5rem;
   position: relative;
   padding: 0px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
   text-align: center;
 }
+
+.white_signup {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  width: 330px;
+  height: 30rem;
+  margin-right: 3rem;
+  margin-bottom: 1rem;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  text-align: center;
+  
+}
+
 
 #email {
   -webkit-animation-delay: 0.6s;
@@ -327,6 +361,8 @@ input {
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
+  width:5rem;
+  height:0.4rem;
   font-size: 13px;
   -webkit-box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
   box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
@@ -338,6 +374,25 @@ input {
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+}
+
+.patient_info {
+  background-color:rgba(95, 186, 233, 0.7);
+  
+  
+}
+
+ ::placeholder{
+color:  #474f53;
+}
+
+.reason{
+  background-color:rgba(95, 186, 233, 0.7);
+
+}
+
+.doctors2 .inp_form{
+  background-color: rgba(19, 53, 70, 0.4);
 }
 
 textarea {

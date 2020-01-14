@@ -2,6 +2,8 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 //import Moment from 'react-moment'
+
+
 const SingleDoctor = props => {
   const [doctor, GetDoctor] = useState([])
   const [appDate, SetAppDate] = useState('')
@@ -13,7 +15,7 @@ const SingleDoctor = props => {
     console.log('doctor id ' + props.match.params.id)
     const resp = await axios.get(
       `https://localhost:5001/api/Doctor/${props.match.params.id}`
-    ) 
+    )
 
     GetDoctor(resp.data)
   }
@@ -22,10 +24,11 @@ const SingleDoctor = props => {
     const resp = await axios.post(
       'https://localhost:5001/api/AppointmentForm',
       {
-    //    AppointmentDate: Moment(appDate).format('YYYY/MM/DD HH:mm'),
+       // AppointmentDate: Moment(appDate).format('YYYY/MM/DD HH:mm'),
         Discription: discrip,
         Email: emaill,
         LastNanme: lastN,
+       // AppointmentDate: appDate,
         DoctorId: parseInt(props.match.params.id),
       }
     )
@@ -54,7 +57,7 @@ const SingleDoctor = props => {
 
       <section>
         <h1>Make Appointment</h1>
-
+        
         <input
           className="inp"
           type="text"
@@ -74,7 +77,7 @@ const SingleDoctor = props => {
         />
         <input
           className="inp"
-          type="text"
+          type="datetime-local"
           className="patient_info"
           placeholder="Date"
           value={appDate}
