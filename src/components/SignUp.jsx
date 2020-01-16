@@ -10,6 +10,7 @@ const SignUp = () => {
     LastName: '',
     password: '',
     email: '',
+    Id: 0,
   })
 
   const setUserName = e => {
@@ -30,6 +31,7 @@ const SignUp = () => {
     e.preventDefault()
     const resp = await axios.post('https://localhost:5001/auth/signup', user)
     console.log(resp.data)
+    console.log(resp.status)
     localStorage.setItem('token', resp.data.token)
     localStorage.setItem('expiresAt', resp.data.expirationTime)
   }

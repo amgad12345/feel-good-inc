@@ -23,7 +23,7 @@ import HomePage from './pages/HomePage'
 import NotFound from './pages/NotFound'
 import Secret from './pages/Secret'
 import Unauthed from './pages/Unauthed'
-
+import DoctorPortal from './pages/DoctorPortal'
 
 
 
@@ -76,9 +76,10 @@ const App = () => {
         <Route exact path="/16" component={Page16}></Route>
         <Route exact path="/17" component={Page17}></Route>
         <Route exact path="/18" component={Page18}></Route>
-        <Route exact path="/secret/:username" component={Secret}></Route>
-        <Route exact path="/unauth" component={Unauthed}></Route>
+        <Route exact path="/secret" component={Secret}></Route>
+        <Route exact path="/Unauthed" component={Unauthed}></Route>
         <Route exact path="/SingleDoctor/:id" component={SingleDoctor}></Route>
+        <Route exact path="/DoctorPortal/:id" component={DoctorPortal}></Route>
         <Route path="*" component={NotFound}></Route>
       </Switch>
     </Router>

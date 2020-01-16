@@ -3,11 +3,13 @@ import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSignInAlt, faUserMd } from '@fortawesome/free-solid-svg-icons'
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
 import '../index.css'
 
-const LogIn = () => {
+const LogIn = props => {
   const [successfullyCreated, setSuccessfullyCreated] = useState(false)
   const [usernameFromApi, setUsernameFromApi] = useState('')
+
   const [user, setUser] = useState({
     email: '',
     password: '',
@@ -31,11 +33,17 @@ const LogIn = () => {
     e.preventDefault()
     const resp = await axios.post('https://localhost:5001/auth/login', user)
     console.log(resp.data)
+    console.log(resp.data.token)
+    console.log(resp.status)
+
     localStorage.setItem('token', resp.data.token)
     localStorage.setItem('expiresAt', resp.data.expirationTime)
     // redirect to the secret
-    if (resp.status === 200) {
+    if (resp.status == 200) {
       setUsernameFromApi(resp.data.username)
+      //TODO store the toke in local storage
+
+      window.location.href = 'http://localhost:3000/2'
     }
   }
 
@@ -52,7 +60,9 @@ const LogIn = () => {
       ) : (
         <div className="container">
           <form onSubmit={submitForm} className="white">
-            <FontAwesomeIcon className="faUserMd" icon={faUserMd} />
+            <section className="Doctor_Portal_Container">
+              <FontAwesomeIcon className="faUserMd" icon={faUserMd} />
+            </section>
             <h5 className="sign_in">
               ACCOUNT LOGIN{' '}
               <FontAwesomeIcon className="faSignInAlt" icon={faSignInAlt} />
@@ -63,7 +73,8 @@ const LogIn = () => {
               <input
                 className="inp"
                 type="email"
-                value={user.username}
+                name="email"
+                value={user.email}
                 onChange={updateUser}
                 placeholder="Email"
               ></input>
@@ -75,14 +86,21 @@ const LogIn = () => {
                 className="inp"
                 type="password"
                 id="password"
+                name="password"
                 onChange={updateUser}
                 placeholder="Password"
               ></input>
             </div>
 
-            <div className="input-feild">
-              <button className="log_in_btn">Log in</button>
-            </div>
+            <button className="log_in_btn">Log in</button>
+
+            <span>
+              {' '}
+              <Link className="Doctor_Portal" to={`/DoctorPortal/${props.id}`}>
+                {' '}
+                <h5>DOCTOR PORTAL</h5>
+              </Link>{' '}
+            </span>
           </form>
           <footer>
             <section className="social_container">

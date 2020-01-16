@@ -1,12 +1,19 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { BrowserRouter as Redirect, Link, Route, Switch } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarCheck } from '@fortawesome/free-solid-svg-icons'
 
 const Dentists = props => {
+  const [isAuthenticated, setIsAuthenticated] = useState(true)
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (!token) {
+      setIsAuthenticated(false)
+    }
+  }, [])
   return (
-    <>    
+    <>  
+         {isAuthenticated ? (  
         <div className = "doctors_conainer">
         <div  className = "doctors">
          <h2 className = "doctors_name"> {props.name}</h2>
@@ -20,8 +27,11 @@ const Dentists = props => {
          </Link>
          </div>
          </div>
+        ) : ( <Redirect to="/Unauthed" />
+         )}
     </>
-  )
+    
+  ) 
 }
 
 export default Dentists
