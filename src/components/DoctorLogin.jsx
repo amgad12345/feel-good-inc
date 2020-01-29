@@ -35,7 +35,7 @@ const DoctorLogin = (props) => {
   
   const submitForm = async e => {
     e.preventDefault()
-    const resp = await axios.post('https://localhost:5001/Docauth/Doclogin', user)
+    const resp = await axios.post('https://doc-new-api.herokuapp.com/Docauth/Doclogin', user)
     console.log(resp.data)
     console.log(resp.data.doctorId)
     console.log(resp.data.token)

@@ -11,7 +11,7 @@ const Page9= () => {
     console.log('about to call api')
 
     const resp = await axios.get(
-      'https://localhost:5001/api/Doctor/gettype/Gynecologist'
+      'https://doc-new-api.herokuapp.com/api/Doctor/gettype/Gynecologist'
     )
     const response = resp.data
     GetGynecologists(resp.data)

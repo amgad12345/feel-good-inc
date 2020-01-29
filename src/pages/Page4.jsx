@@ -12,7 +12,7 @@ const Page4= () => {
     console.log('about to call api')
 
     const resp = await axios.get(
-      'https://localhost:5001/api/Doctor/gettype/General%20Practitioner'
+      'https://doc-new-api.herokuapp.com/api/Doctor/gettype/General%20Practitioner'
     )
     const response = resp.data
     GetGeneralPractitioner(resp.data)

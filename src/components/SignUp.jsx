@@ -39,7 +39,7 @@ const SignUp = props => {
 
   const submitForm = async e => {
     e.preventDefault()
-    const resp = await axios.post('https://localhost:5001/auth/signup', user)
+    const resp = await axios.post('https://doc-new-api.herokuapp.com/auth/signup', user)
     console.log(resp.data)
     console.log(resp.status)
     localStorage.setItem('token', resp.data.token)

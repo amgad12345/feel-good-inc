@@ -11,7 +11,7 @@ const Page15 = () => {
     console.log('about to call api')
 
     const resp = await axios.get(
-      'https://localhost:5001/api/Doctor/gettype/Physician'
+      'https://doc-new-api.herokuapp.com/api/Doctor/gettype/Physician'
     )
     const response = resp.data
     GetPhysician(resp.data)

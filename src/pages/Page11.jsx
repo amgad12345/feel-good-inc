@@ -11,7 +11,7 @@ const Page11= () => {
     console.log('about to call api')
 
     const resp = await axios.get(
-      'https://localhost:5001/api/Doctor/gettype/Pathologist%20'
+      'https://doc-new-api.herokuapp.com/api/Doctor/gettype/Pathologist%20'
     )
     const response = resp.data
     GetPathologists(resp.data)

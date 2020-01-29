@@ -30,7 +30,7 @@ const SingleDoctor = props => {
   const GetAllApp = async appointmentForms => {
     console.log('doctor id ' + props.match.params.id)
     const resp = await axios.get(
-      `https://localhost:5001/api/Doctor/getdoc-appointmen/${props.match.params.id}`
+      `https://doc-new-api.herokuapp.com/api/Doctor/getdoc-appointmen/${props.match.params.id}`
     )
     console.log(resp.data)
 
@@ -68,7 +68,7 @@ const SingleDoctor = props => {
   const getSingleDoctorApi = async () => {
     console.log('doctor id ' + props.match.params.id)
     const resp = await axios.get(
-      `https://localhost:5001/api/Doctor/${props.match.params.id}`
+      `https://doc-new-api.herokuapp.com/api/Doctor/${props.match.params.id}`
     )
     console.log(resp.data)
     GetDoctor(resp.data)
@@ -79,7 +79,7 @@ const SingleDoctor = props => {
     console.log(' okay ' + appointmentTaken)
     if (!appointmentTaken) {
       const resp = await axios.post(
-        'https://localhost:5001/api/AppointmentForm',
+        'https://doc-new-api.herokuapp.com/api/AppointmentForm',
         {
           Discription: discrip,
           Email: emaill,

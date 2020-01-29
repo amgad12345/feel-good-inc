@@ -10,7 +10,7 @@ const Page8= () => {
     console.log('about to call api')
 
     const resp = await axios.get(
-      'https://localhost:5001/api/Doctor/gettype/Urologist'
+      'https://doc-new-api.herokuapp.com/api/Doctor/gettype/Urologist'
     )
     const response = resp.data
     GetUrologist(resp.data)
