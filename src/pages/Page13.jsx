@@ -2,6 +2,7 @@ import React from 'react'
 import Internists from '../components/Internists'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Link, Redirect } from 'react-router-dom'
 
 const Page13= () => {
   const [internists, GetInternists] = useState([])
@@ -18,11 +19,22 @@ const Page13= () => {
     console.log(response)
   }
 
+  const [isAuthenticated, setIsAuthenticated] = useState(true)
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (!token) {
+      setIsAuthenticated(false)
+    }
+  }, [])
   useEffect(() => {
     getInternistsFromApi()
   }, [])
 
   return (
+    
+ <>
+ {isAuthenticated ? (
+   <>
     <div>
       {internists.map(Doc => {
         return <Internists
@@ -36,6 +48,11 @@ const Page13= () => {
         />
       })}
     </div>
+    </>
+      ) : (
+        <Redirect to="/Unauthed" />
+      )}
+    </>
   )
 }
 

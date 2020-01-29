@@ -2,6 +2,9 @@ import React from 'react'
 import GeneralPractitioner from '../components/GeneralPractitioner'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
+import { Link, Redirect } from 'react-router-dom'
+
+
 const Page4= () => {
   const [generalpractitioner, GetGeneralPractitioner] = useState([])
 
@@ -15,13 +18,26 @@ const Page4= () => {
     GetGeneralPractitioner(resp.data)
     console.log('resp ' + JSON.stringify(resp))
     console.log(response)
-  }
+  } 
+
+  const [isAuthenticated, setIsAuthenticated] = useState(true)
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (!token) {
+      setIsAuthenticated(false)
+    }
+  }, [])
+
 
   useEffect(() => {
     getGeneralPractitionerFromApi()
   }, [])
 
   return (
+    <>
+    {isAuthenticated ? (
+      <>
+
     <div>
       {generalpractitioner.map(Gen => {
         return <GeneralPractitioner
@@ -35,6 +51,12 @@ const Page4= () => {
         />
       })}
     </div>
+
+    </>
+      ) : (
+        <Redirect to="/Unauthed" />
+      )}
+    </>
   )
 
 }

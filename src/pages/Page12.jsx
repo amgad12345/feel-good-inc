@@ -2,6 +2,7 @@ import React from 'react'
 import Ophthalmologist from '../components/Ophthalmologist'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Link, Redirect } from 'react-router-dom'
 
 const Page12= () => {
   const [ophthalmologist, GetOphthalmologist] = useState([])
@@ -18,11 +19,24 @@ const Page12= () => {
     console.log(response)
   }
 
+  
+ const [isAuthenticated, setIsAuthenticated] = useState(true)
+ useEffect(() => {
+   const token = localStorage.getItem('token')
+   if (!token) {
+     setIsAuthenticated(false)
+   }
+ }, [])
+
   useEffect(() => {
     getGetOphthalmologistsFromApi()
   }, [])
 
   return (
+    
+ <>
+ {isAuthenticated ? (
+   <>
     <div>
       {ophthalmologist.map(Doc => {
         return <Ophthalmologist
@@ -36,6 +50,11 @@ const Page12= () => {
         />
       })}
     </div>
+    </>
+    ) : (
+      <Redirect to="/Unauthed" />
+    )}
+  </>
   )
 }
 

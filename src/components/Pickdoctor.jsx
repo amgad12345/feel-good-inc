@@ -17,119 +17,88 @@ const PickDoctor = props => {
         <>
           <div className="container">
             <div className="doctors_container">
-              <Link to="/3">
-                <button className="myButton " title={props.dentist}>
+              <Link to="/Dentists">
+                <button  className="myButton " title={props.dentist}>
                   Dentist
                 </button>
               </Link>
-              <Link to="/4">
+              <Link to="/GeneralPractitioner">
                 <button className="myButton" title={props.generalpractitioner}>
                   general practitioner
                 </button>
               </Link>
-              <Link to="/5">
+              <Link to="/Surgeon">
                 <button className="myButton" title={props.Surgeon}>
                   Surgeon
                 </button>
               </Link>
-              <Link to="/6">
+              <Link to="/Dermatologist">
                 <button className="myButton" title={props.Dermatologist}>
                   Dermatologist
                 </button>
               </Link>
-              <Link to="/7">
+              <Link to="/Psychiatrist">
                 <button className="myButton" title={props.Psychiatrist}>
                   Psychiatrist
                 </button>
               </Link>
-              <Link to="/8">
+              <Link to="/Urologist">
                 <button className="myButton" title={props.Urologist}>
                   Urologist
                 </button>
               </Link>
-              <Link to="/9">
+              <Link to="/Gynecologists">
                 <button className="myButton" title={props.Gynecologists}>
                   Gynecologists
                 </button>
               </Link>
-              <Link to="/10">
+              <Link to="/Radiologists">
                 <button className="myButton" title={props.Radiologists}>
                   Radiologists
                 </button>
               </Link>
-              <Link to="/11">
+              <Link to="/Pathologists">
                 <button className="myButton" title={props.Pathologists}>
                   Pathologists
                 </button>
               </Link>
-              <Link to="/12">
+              <Link to="/Ophthalmologist">
                 <button className="myButton" title={props.Ophthalmologist}>
                   Ophthalmologist
                 </button>
               </Link>
-              <Link to="/13">
+              <Link to="/Internists">
                 <button className="myButton" title={props.Internists}>
                   Internists
                 </button>
               </Link>
-              <Link to="/14">
+              <Link to="/Allergist">
                 <button className="myButton" title={props.Allergist}>
                   Allergist
                 </button>
               </Link>
-              <Link to="/15">
+              <Link to="/Physician">
                 <button className="myButton" title={props.Physician}>
                   Physician
                 </button>
               </Link>
-              <Link to="/16">
+              <Link to="/Pediatrician">
                 <button className="myButton" title={props.Pediatrician}>
                   Pediatrician
                 </button>
               </Link>
-              <Link to="/17">
+              <Link to="/Nephrologist">
                 <button className="myButton" title={props.Nephrologist}>
                   Nephrologist
                 </button>
               </Link>
-              <Link to="/18">
+              <Link to="/Anesthesiologist">
                 <button className="myButton" title={props.Anesthesiologist}>
                   Anesthesiologist
                 </button>
               </Link>
             </div>
-            <footer>
-              <section className="social_container">
-                <h3 className="Follow">Follow Us</h3>
-                <a className="social_icons" href="https://www.facebook.com/">
-                  <h4 class="fa fa-facebook"></h4>
-                </a>
-                <a
-                  className="social_icons"
-                  href="https://www.instagram.com/?hl=en"
-                >
-                  <h4 class="fa fa-instagram"></h4>
-                </a>
-                <a className="social_icons" href="https://twitter.com/?lang=en">
-                  <h4 class="fa fa-twitter"></h4>
-                </a>
-              </section>
-              <a href="#">
-                <h4> Copyright © 2019 </h4>
-              </a>
-              <a href="#">
-                <h4>Privacy Policy</h4>
-              </a>
-              <a href="#">
-                <h4>Contact us</h4>
-              </a>
-              <a href="#">
-                <h4> Amgad Behman & Associates</h4>
-              </a>
-              <a href="#">
-                <h4>Sitemap</h4>
-              </a>
-            </footer>
+            
           </div>
         </>
       ) : (

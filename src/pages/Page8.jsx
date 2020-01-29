@@ -1,6 +1,7 @@
 import React from 'react'
 import Urologist from '../components/Urologist'
 import { useState, useEffect } from 'react'
+import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
 const Page8= () => {
   const [urologists, GetUrologist] = useState([])
@@ -17,11 +18,23 @@ const Page8= () => {
     console.log(response)
   }
 
+  const [isAuthenticated, setIsAuthenticated] = useState(true)
+ useEffect(() => {
+   const token = localStorage.getItem('token')
+   if (!token) {
+     setIsAuthenticated(false)
+   }
+ }, [])
+
+
   useEffect(() => {
     getUrologistsFromApi()
   }, [])
 
   return (
+    <>
+ {isAuthenticated ? (
+   <>
     <div>
       {urologists.map(Doc => {
         return <Urologist 
@@ -35,6 +48,11 @@ const Page8= () => {
         />
       })}
     </div>
+    </>
+      ) : (
+        <Redirect to="/Unauthed" />
+      )}
+    </>
   )
 }
 

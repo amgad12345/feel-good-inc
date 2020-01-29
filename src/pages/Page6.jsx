@@ -2,6 +2,9 @@ import React from 'react'
 import Dermatologist from '../components/Dermatologist'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Link, Redirect } from 'react-router-dom'
+
+
 const Page5= () => {
   const [dermatologists, GetDermatologist] = useState([])
 
@@ -17,11 +20,22 @@ const Page5= () => {
     console.log(response)
   }
 
+  const [isAuthenticated, setIsAuthenticated] = useState(true)
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (!token) {
+      setIsAuthenticated(false)
+    }
+  }, [])
+
   useEffect(() => {
     getDermatologistsFromApi()
   }, [])
 
   return (
+    <>
+    {isAuthenticated ? (
+      <>
     <div>
       {dermatologists.map(Doc => {
         return <Dermatologist 
@@ -35,6 +49,12 @@ const Page5= () => {
         />
       })}
     </div>
+    </>
+    ) : (
+      <Redirect to="/Unauthed" />
+    )}
+  </>
+
   )
 }
 

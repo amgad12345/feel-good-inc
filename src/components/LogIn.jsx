@@ -2,7 +2,11 @@ import React, { Component, useState, useEffect } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSignInAlt, faUserMd } from '@fortawesome/free-solid-svg-icons'
+import {
+  faSignInAlt,
+  faUserMd,
+  faUserInjured,
+} from '@fortawesome/free-solid-svg-icons'
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
 import '../index.css'
 
@@ -40,10 +44,11 @@ const LogIn = props => {
     localStorage.setItem('expiresAt', resp.data.expirationTime)
     // redirect to the secret
     if (resp.status == 200) {
-      setUsernameFromApi(resp.data.username)
+      props.setIsAuthed(true)
+      setUsernameFromApi(resp.data.email)
       //TODO store the toke in local storage
 
-      window.location.href = 'http://localhost:3000/2'
+      // window.location.href = 'http://localhost:3000/2'
     }
   }
 
@@ -56,12 +61,12 @@ const LogIn = props => {
   return (
     <>
       {successfullyCreated ? (
-        <Redirect to={`/secret/${usernameFromApi}`} />
+        <Redirect to={`/Pickdoctor`} />
       ) : (
         <div className="container">
           <form onSubmit={submitForm} className="white">
             <section className="Doctor_Portal_Container">
-              <FontAwesomeIcon className="faUserMd" icon={faUserMd} />
+              <FontAwesomeIcon className="faUserMd" icon={faUserInjured} />
             </section>
             <h5 className="sign_in">
               ACCOUNT LOGIN{' '}
@@ -102,40 +107,6 @@ const LogIn = props => {
               </Link>{' '}
             </span>
           </form>
-          <footer>
-            <section className="social_container">
-              <h3 className="Follow">Follow Us</h3>
-              <a className="social_icons" href="https://www.facebook.com/">
-                <h4 class="fa fa-facebook"></h4>
-              </a>
-              <a
-                className="social_icons"
-                href="https://www.instagram.com/?hl=en"
-              >
-                <h4 class="fa fa-instagram"></h4>
-              </a>
-              <a className="social_icons" href="https://twitter.com/?lang=en">
-                <h4 class="fa fa-twitter"></h4>
-              </a>
-            </section>
-            <section className="middle">
-              <a href="#" className="mid">
-                <h4>Copyright © 2019</h4>
-              </a>
-              <a href="#" className="mid">
-                <h4>Privacy Policy</h4>
-              </a>
-              <a href="#" className="mid">
-                <h4>Contact us</h4>
-              </a>
-              <a href="#" className="mid">
-                <h4> Amgad Behman & Associates</h4>
-              </a>
-              <a href="#" className="mid">
-                <h4>Sitemap</h4>
-              </a>
-            </section>
-          </footer>
         </div>
       )}
     </>

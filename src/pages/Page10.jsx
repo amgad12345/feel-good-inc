@@ -2,6 +2,9 @@ import React from 'react'
 import Radiologists from '../components/Radiologists'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Link, Redirect } from 'react-router-dom'
+
+
 const Page10= () => {
   const [radiologists, GetRadiologists] = useState([])
 
@@ -17,11 +20,25 @@ const Page10= () => {
     console.log(response)
   }
 
+
+  const [isAuthenticated, setIsAuthenticated] = useState(true)
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (!token) {
+      setIsAuthenticated(false)
+    }
+  }, [])
+
   useEffect(() => {
     getRadiologistsFromApi()
   }, [])
 
   return (
+    
+ <>
+ {isAuthenticated ? (
+   <>
+
     <div>
       {radiologists.map(Doc => {
         return <Radiologists
@@ -35,6 +52,12 @@ const Page10= () => {
         />
       })}
     </div>
+     </>
+     ) : (
+       <Redirect to="/Unauthed" />
+     )}
+   </>
+
   )
 }
 

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons'
 import '../index.css'
 
-const SignUp = () => {
+const SignUp = props => {
   const [user, setUser] = useState({
     FirstName: '',
     LastName: '',
@@ -12,6 +12,16 @@ const SignUp = () => {
     email: '',
     Id: 0,
   })
+
+  const [showAppMessage, setAppMessage] = useState(false)
+
+  const showAppMessageFunc = () => {
+    if (!showAppMessage) {
+      setAppMessage(true)
+    } else {
+      setAppMessage(false)
+    }
+  }
 
   const setUserName = e => {
     setUserName(e.target.value)
@@ -34,11 +44,24 @@ const SignUp = () => {
     console.log(resp.status)
     localStorage.setItem('token', resp.data.token)
     localStorage.setItem('expiresAt', resp.data.expirationTime)
+    if (resp.status == 200) {
+      props.setIsAuthed(true)
+      setAppMessage(true)
+    } else {
+      setAppMessage(false)
+    }
   }
 
   return (
     <div className="container">
       <form onSubmit={submitForm} className="white_signup">
+        {showAppMessage && (
+          <div>
+            <h1 id="Signup_Msg_Id" className="Signup_Msg">
+              SIGN UP SUCCESFUL
+            </h1>
+          </div>
+        )}
         <FontAwesomeIcon className="faUserPlus" icon={faUserPlus} />
         <h5 className="sign_up">SIGN UP</h5>
         <div className="input-feild">
@@ -86,38 +109,9 @@ const SignUp = () => {
           ></input>
         </div>
         <div className="input-feild">
-          <button className="sign_up_btn">Sign up</button>
+          <button  className="sign_up_btn">Sign up</button>
         </div>
       </form>
-      <footer>
-        <section className="social_container">
-          <h3 className="Follow">Follow Us</h3>
-          <a className="social_icons" href="https://www.facebook.com/">
-            <h4 class="fa fa-facebook"></h4>
-          </a>
-          <a className="social_icons" href="https://www.instagram.com/?hl=en">
-            <h4 class="fa fa-instagram"></h4>
-          </a>
-          <a className="social_icons" href="https://twitter.com/?lang=en">
-            <h4 class="fa fa-twitter"></h4>
-          </a>
-        </section>
-        <a href="#">
-          <h4> Copyright © 2019 </h4>
-        </a>
-        <a href="#">
-          <h4>Privacy Policy</h4>
-        </a>
-        <a href="#">
-          <h4>Contact us</h4>
-        </a>
-        <a href="#">
-          <h4> Amgad Behman & Associates</h4>
-        </a>
-        <a href="#">
-          <h4>Sitemap</h4>
-        </a>
-      </footer>
     </div>
   )
 }

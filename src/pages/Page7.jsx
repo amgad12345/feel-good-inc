@@ -1,7 +1,11 @@
 import React from 'react'
 import Psychiatrist from '../components/Psychiatrist'
 import { useState, useEffect } from 'react'
+import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
+
+
+
 const Page7= () => {
   const [psychiatrists, GetPsychiatrist] = useState([])
 
@@ -15,13 +19,27 @@ const Page7= () => {
     GetPsychiatrist(resp.data)
     console.log('resp ' + JSON.stringify(resp))
     console.log(response)
-  }
+  } 
+
+  
+ const [isAuthenticated, setIsAuthenticated] = useState(true)
+ useEffect(() => {
+   const token = localStorage.getItem('token')
+   if (!token) {
+     setIsAuthenticated(false)
+   }
+ }, [])
 
   useEffect(() => {
     getPsychiatristsFromApi()
   }, [])
 
   return (
+      
+ <>
+ {isAuthenticated ? (
+   <>
+
     <div>
     {psychiatrists.map(Doc => {
       return <Psychiatrist 
@@ -35,6 +53,11 @@ const Page7= () => {
       />
     })}
   </div>
+  </>
+      ) : (
+        <Redirect to="/Unauthed" />
+      )}
+    </>
   )
 }
 

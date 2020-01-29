@@ -1,7 +1,11 @@
 import React from 'react'
 import Surgeon from '../components/Surgeon'
 import axios from 'axios'
+import { Link, Redirect } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+
+
+
 const Page5= () => {
   const [surgeons, GetSurgeon] = useState([])
 
@@ -14,14 +18,27 @@ const Page5= () => {
     const response = resp.data
     GetSurgeon(resp.data)
     console.log('resp ' + JSON.stringify(resp))
-    console.log(response)
-  }
+    console.log(response.name)
+  }  
+
+  const [isAuthenticated, setIsAuthenticated] = useState(true)
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (!token) {
+      setIsAuthenticated(false)
+    }
+  }, [])
+
 
   useEffect(() => {
     getSurgeonsFromApi()
   }, [])
 
   return (
+<>
+    {isAuthenticated ? (
+      <>
+
     <div>
       {surgeons.map(ser => {
         return <Surgeon 
@@ -34,7 +51,13 @@ const Page5= () => {
         review={ser.review}  
         />
       })}
-    </div>
+    </div> 
+    </>
+      ) : (
+        <Redirect to="/Unauthed" />
+      )}
+    </>
+
   )
 }
 

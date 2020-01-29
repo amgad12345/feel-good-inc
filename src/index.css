@@ -8,7 +8,7 @@ html {
   background: url('components\images\hospital.jpg') no-repeat center center
     fixed;
   background-size: cover;
-  position: relative;
+  
 }
 
 body {
@@ -16,7 +16,7 @@ body {
   
   min-height: 100%;
   font-family: 'Open Sans', sans-serif;
-  height: 100vh;
+  
   position: relative;
 }
 
@@ -45,10 +45,10 @@ header {
   justify-content: space-between;
   background-color: rgba(253, 254, 254);
   color: black;
-  border-right: 0.5px solid rgba(95, 186, 233, 0.8);
+ 
   align-items: center;
   text-decoration: none;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   padding-bottom: 0px;
   height: 40px;
 }
@@ -91,19 +91,39 @@ header {
 
 
 .faUserMd{
-  font-size: 4rem;
+  font-size: 3.5rem;
   margin-top: 2rem;
   color: #007dc1;
 }
 
 .faUserPlus {
-  font-size: 4rem;
-  margin-top: 2rem;
+  font-size: 3.5rem;
+  margin-top: 20px;
   color: #007dc1; 
   margin-left: 15px;
 }
 
+.Cancelled_Appointment {
+  color: red;
+}
 
+.Signup_Msg {
+  
+  font-size: 15px;
+  color: #56baed;
+  
+}
+
+#Signup_Msg_Id {
+  margin-bottom: 0; 
+  
+}
+
+#Brief{
+  font-size: 3.5rem;
+  margin-top: 1.7rem;
+  color: #007dc1;
+}
 
 .Doctor_Portal h5 {
 
@@ -132,6 +152,7 @@ nav ul {
   text-decoration: none;
   align-items: center;
   color: black;
+  
 }
 
 nav li {
@@ -144,6 +165,31 @@ nav li {
   font-size: 0.8rem;
   color: black;
 
+}
+
+#logout {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-right: 0rem;
+  padding-left: 0rem;
+  border-right: 0px solid rgb(143, 140, 140);
+  font-weight: bold;
+  font-size: 0.75rem;
+  color: black;
+  margin: 0rem;
+  margin-top: 1px;
+  text-transform: none;
+  background-color: rgba(253, 254, 254);
+  -webkit-box-shadow: 0 0px 30px 0 rgba(95, 186, 233, 0.4);
+  box-shadow: 0 0px 0px 0 rgba(95, 186, 233, 0.4);
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 5px 5px 5px 5px;
+   text-transform: none;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 a {
@@ -162,20 +208,21 @@ h4 {
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
+ 
+  position:fixed;
+ bottom:0;
   width:100%;
   height: 0.8rem;
   display: inline-flex;
   justify-content: center; 
-  z-index: 1;
+  
   padding-bottom: 0.8rem;
   overflow: hidden;
-  margin-bottom: -1rem;
+  
   background-color: rgba(253, 254, 254, 0.7);
   ;
   height: 35px;
-  vertical-align: middle;
+  
 }
 
 .social_container{
@@ -184,6 +231,14 @@ footer {
   position: absolute;
   left: 2em;
   
+}
+
+.Rate_Container {
+  margin-left: 10px;
+}
+
+#Rev {
+  font-size: 1rem;
 }
 
 .Follow {
@@ -213,6 +268,9 @@ font-size: 1.1rem;
 
 .sign_up {
   font-size: 1rem;
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+  
 }
 
 .type_of_doc {
@@ -248,6 +306,8 @@ button {
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
+
+
 
 .log_in_btn{
   margin-bottom: 0.1rem;
@@ -285,6 +345,25 @@ button {
   margin-right: auto;
 }
 
+.Button_Container {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+} 
+
+
+
+
+
+.cancel_but {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0rem;
+  width: 220px;
+  height: 40px;
+  padding: 0;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -316,11 +395,12 @@ button {
   flex-direction: column;
   background-color: rgba(201, 223, 235, 0.8);
   margin-top: 10px;
-  margin-bottom: 10px;
-  padding-right: 0.45rem;
+  margin-bottom: 30px;
+  
   padding-top: 0.5px;
   padding-bottom: 1rem;
-  max-width: 460px;
+  width: 90%;
+  max-width: 450px;
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
   justify-content: space-around;
@@ -329,12 +409,31 @@ button {
   margin-right: auto;
 }
 
+
 .floor4 footer {
   display: none;
   }
 
-.doctors2 section {
-  padding-left: 0.4rem;
+
+.star-ratings {
+  vertical-align: middle;
+  height: 1rem;
+  margin-top: 1.25rem;
+  margin-left: 0.4rem;
+}
+
+.rate{
+  display: flex;
+  flex-direction: row;
+  
+  
+}
+.Review {
+  margin: 0;
+}
+.star-container {
+  margin-top: -2.4rem;
+ 
 }
 
 .white {
@@ -345,7 +444,7 @@ button {
   width: 330px;
   height: 416px;
   margin-right: 3rem;
-  margin-top: 2.5rem;
+  margin-top: 3rem;
   position: relative;
   padding: 0px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
@@ -359,11 +458,12 @@ button {
   border-radius: 10px 10px 10px 10px;
   background: #fff;
   padding: 30px;
+  margin-top: 1.5rem;
   width: 330px;
   height: 30rem;
   margin-right: 3rem;
-  margin-bottom: 1rem;
-  position: relative;
+  
+  
   padding: 0px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
@@ -371,11 +471,39 @@ button {
   
 }
 
+.Doc_white_signup{
+
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  width: 330px;
+  height: 25rem;
+  margin-top: 2.5rem;
+  margin-right: 3rem;
+  
+  
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  text-align: center;
+
+}
+
+#info {
+  margin-left: 10px;
+} 
+
 
 #email {
   -webkit-animation-delay: 0.6s;
   -moz-animation-delay: 0.6s;
   animation-delay: 0.6s;
+}
+
+#Dis {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 input {
@@ -422,7 +550,7 @@ color:  #474f53;
 
 textarea {
   height: 10rem;
-  width: 26rem;
+  width: 20rem;
   border: none;
   text-align: start;
   text-transform: none;
@@ -439,9 +567,489 @@ textarea {
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  resize: none;
+
+  object-fit: cover;
   display: block;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 3rem;
+}
+
+
+.cont_error{
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: rgb(255, 255, 255);
+  position: absolute;
+	top:0;
+	bottom: 0;
+	left: 20;
+	right: 0;
+  vertical-align: middle;	
+  width: 500px;
+  height: 150px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+hr.style13 {
+	height: 10px;
+	border: 0;
+  box-shadow: 0 10px 10px -10px #555252 inset;
+}
+
+
+.Appointment_Results{
+   
+    word-wrap: break-word;
+}
+
+
+
+#btnControl {
+  display: none;
+}
+
+#btnControl:active {
+
+  display: block;
+}
+
+
+@media (min-width: 767px) and (max-width: 1024px) {
+  
+ footer {
+   font-size: 0.63rem;
+   height: 1.1rem;
+   
+ }
+
+ .middle {
+
+  margin-left: 3rem;
+ }
+
+ .white_signup {
+   
+  padding-bottom: 1rem;
+ }
+
+ .Doc_white_signup{
+
+  height: 25rem;
+  margin-top: 2rem;
+  
+
+ }
+  
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  
+  .feel_good {
+    font-size: 1rem;
+    padding-left: 0.3rem;
+  }
+
+  nav li {
+    font-size: 0.6rem;
+    padding-right: 0.6rem;
+    padding-left: 0.6rem;
+  }
+
+  #logout {
+    font-size: 0.6rem;
+   
+  }
+
+  .white {
+    margin-left: auto;
+    margin-right: auto;
+     height: 360px;
+     width: 300px;
+  }
+
+  .white_signup{
+
+    margin-left: 2.7rem;
+    height: 430px;
+    width: 300px;
+  }
+
+
+  .Doc_white_signup {
+    margin-top: 2.5rem;
+    margin-left: auto;
+    margin-right: auto;
+     height: 330px;
+     width: 300px;
+  }
+
+
+  .faUserMd{
+    font-size: 3rem;
+
+  }
+
+  .faUserPlus {
+    font-size: 2.5rem;
+  }
+
+
+  .faSignInAlt {
+   
+    font-size: 0.8rem;
+
+  }
+
+  .sign_up {
+    font-size: 0.8rem;
+    margin-top: 0.8rem;
+    margin-bottom:0.5rem ;
+  }
+
+
+  .sign_in {
+    font-size: 0.8rem;
+    margin-left: 20px;
+  }
+
+
+
+ .log_in_btn{
+
+width: 0.8rem ;
+font-size: 12px;
+white-space: nowrap;
+vertical-align: middle;
+height:2.5rem;
+display: inline-flex;
+justify-content: center;
+
+  }
+
+#Doc_Text_Signup {
+  margin-top: 1rem;
+}
+
+#sign_up_btn_doc {
+  margin-top: 0.7rem;
+  margin-bottom: 0.5rem;
+}
+
+  .sign_up_btn {
+
+    width: 0.8rem ;
+    font-size: 12px;
+    white-space: nowrap;
+    vertical-align: middle;
+    height:2.5rem;
+    display: inline-flex;
+    justify-content: center;
+    
+
+  }
+
+  .Doctor_Portal{
+  
+    font-size: 0.75rem;
+
+  }
+
+  footer {
+    font-size: 0.50rem;
+    height: 1.1rem;
+    
+  }
+ 
+  .middle {
+ 
+   margin-left: 6rem;
+   margin-right: 0rem;
+
+  }
+
+  .Follow {
+    display: none;
+  }
+
+  #Contact {
+
+    display: none;
+  }
+  
+  footer {
+    height : 0.55rem;
+  }
+
+  .SingleDoctorPortal_Container{
+    
+  }
+}
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+  
+  .feel_good {
+    font-size: 1rem;
+    padding-left: 0.3rem;
+  }
+
+  nav li {
+    font-size: 0.6rem;
+    padding-right: 0.6rem;
+    padding-left: 0.6rem;
+  }
+
+  #logout {
+    font-size: 0.6rem;
+   
+  }
+
+  header {
+    width: 100%;
+  }
+  
+  .white {
+    margin-top: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    height: 350px;
+    width: 280px;
+ }
+
+ .Doc_white_signup {
+ 
+    margin-top: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    height: 350px;
+    width: 280px;
+}
+
+.white_signup{
+
+  margin-left: auto;
+  margin-right: auto;
+  height: 430px;
+  width: 300px;
+}
+
+#Rev {
+  font-size: 0.78rem;
+  
+}
+
+.Rate_Container {
+  margin-left: 10px;
+}
+
+#sign_up_btn_doc {
+  margin-top: 0.7rem;
+  margin-bottom: 0.5rem;
+}
+
+  .sign_up_btn {
+
+    width: 0.8rem ;
+    font-size: 12px;
+    white-space: nowrap;
+    vertical-align: middle;
+    height:2.5rem;
+    display: inline-flex;
+    justify-content: center;
+    
+
+  }
+
+  textarea {
+    width :16.5rem;
+  }
+
+ .submit_appointment {
+    width :16rem;
+    white-space: nowrap;
+    font-size: 0.7rem;
+    text-align:center;
+    padding : 0;
+    height:2.5rem;
+    
+  }
+
+ .sign_up {
+  font-size: 0.8rem;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+
+.sign_in {
+  font-size: 0.8rem;
+  margin-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.Doctor_Portal{
+  
+  font-size: 0.75rem;
+
+}
+
+.faUserMd{
+  font-size: 3rem;
+
+}
+
+.faUserPlus {
+  margin-top: 20px;
+  font-size: 3rem;
+}
+
+
+.faSignInAlt {
+ 
+  font-size: 0.8rem;
+
+}
+
+.faCalendarCheck {
+  font-size: 1.1rem;
+}
+
+.doctors_name {
+margin-bottom: 1rem;
+
+}
+
+.Make {
+  font-size: 1.3rem;
+}
+
+.doctors_name_form {
+  font-size: 1.5rem;
+}
+
+.doctors_info_form {
+  font-size: 0.8rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+h3{
+  font-size: 0.8rem;
+}
+
+.patient_info {
+  margin-bottom: 10px;
+}
+
+.Reason {
+  font-size: 1.3rem;
+} 
+
+  .Visit {
+  display: flex;
+  justify-content: space-around;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1rem;
+
+}
+
+
+
+ footer {
+  height : 0.55rem;
+  font-size: 0.5rem;
+  width:  103%;;
+}
+
+
+#Contact {
+
+  display: none;
+}
+
+#Amgad {
+  display: none;
+}
+
+.Follow {
+  display: none;
+}
+
+.middle {
+  white-space: nowrap;
+  margin-left: 5rem;
+ }
+
+ .mid {
+   padding-left: 0px;
+   padding-right: 0px;
+ }
+
+ .social_icons h4 {
+   padding-left: 4px;
+   
+ }
+
+ .log_in_btn{
+
+  width: 0.8rem ;
+  font-size: 12px;
+  white-space: nowrap;
+  vertical-align: middle;
+  height:2.5rem;
+  display: inline-flex;
+  justify-content: center;
+  
+    }
+    .cancel_but {
+      height: 40px;
+      width: 180px;
+      margin-top: 20px;
+      font-size: 0.6rem;
+
+    }
+    .Appointment_Results{
+      
+      word-wrap: break-word;
+  }
+
+  .cancel_appointment {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+    height: 50px;
+    font-size: 0.7rem;
+    word-wrap: break-word;
+  }
+
+
+  .star-ratings {
+    vertical-align: middle;
+    height: 1rem;
+    margin-top: 1rem;
+    margin-left: 0.3rem;
+  }
+  
+  .rate{
+    display: flex;
+    flex-direction: row;
+    
+    
+  }
+  .Review {
+    margin: 0;
+  }
+  .star-container {
+    margin-top: -2.4rem;
+   
+  }
 }

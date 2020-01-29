@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link, Redirect } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Dentists from '../components/Dentists'
@@ -18,13 +18,26 @@ const Page3 = () => {
     GetDentists(resp.data)
     console.log('resp ' + JSON.stringify(resp))
     console.log(response)
-  }
+    
+  } 
+
+
+  const [isAuthenticated, setIsAuthenticated] = useState(true)
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (!token) {
+      setIsAuthenticated(false)
+    }
+  }, [])
 
   useEffect(() => {
     getDentistsFromApi()
   }, [])
-
+  console.log(dentists)
   return (
+    <>
+    {isAuthenticated ? (
+      <>
     <div>
       {dentists.map(Den => {
         return <Dentists 
@@ -38,6 +51,11 @@ const Page3 = () => {
         />
       })}
     </div>
+    </>
+      ) : (
+        <Redirect to="/Unauthed" />
+      )}
+    </>
   )
 }
 

@@ -2,6 +2,7 @@ import React from 'react'
 import Nephrologist from '../components/Nephrologist'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Link, Redirect } from 'react-router-dom'
 
 const Page17 = () => {
   const [nephrologists, GetNephrologist] = useState([])
@@ -18,11 +19,24 @@ const Page17 = () => {
     console.log(response)
   }
 
+  const [isAuthenticated, setIsAuthenticated] = useState(true)
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (!token) {
+      setIsAuthenticated(false)
+    }
+  }, [])
+
+
   useEffect(() => {
     getNephrologistsFromApi()
   }, [])
 
   return (
+    <>
+    {isAuthenticated ? (
+      <>
+
     <div>
       {nephrologists.map(Doc => {
         return <Nephrologist 
@@ -36,6 +50,11 @@ const Page17 = () => {
         />
       })}
     </div>
+     </>
+     ) : (
+       <Redirect to="/Unauthed" />
+     )}
+   </>
   )
 }
 

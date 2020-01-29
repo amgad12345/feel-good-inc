@@ -2,6 +2,9 @@ import React from 'react'
 import Anesthesiologist from '../components/Anesthesiologist'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Link, Redirect } from 'react-router-dom'
+
+
 const Page17 = () => {
   const [anesthesiologists, GetAnesthesiologist] = useState([])
 
@@ -17,11 +20,24 @@ const Page17 = () => {
     console.log(response)
   }
 
+  const [isAuthenticated, setIsAuthenticated] = useState(true)
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (!token) {
+      setIsAuthenticated(false)
+    }
+  }, [])
+
   useEffect(() => {
     getAnesthesiologistsFromApi()
   }, [])
 
   return (
+<>
+    {isAuthenticated ? (
+      <>
+
+
     <div>
       {anesthesiologists.map(Doc => {
         return <Anesthesiologist
@@ -35,6 +51,11 @@ const Page17 = () => {
         />
       })}
     </div>
+    </>
+      ) : (
+        <Redirect to="/Unauthed" />
+      )}
+    </>
   )
 }
 

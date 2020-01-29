@@ -2,6 +2,8 @@ import React from 'react'
 import Pediatrician from '../components/Pediatrician'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Link, Redirect } from 'react-router-dom'
+
 
 const Page15 = () => {
   const [pediatricians, GetPediatrician] = useState([])
@@ -17,12 +19,24 @@ const Page15 = () => {
     console.log('resp ' + JSON.stringify(resp))
     console.log(response)
   }
+  const [isAuthenticated, setIsAuthenticated] = useState(true)
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (!token) {
+      setIsAuthenticated(false)
+    }
+  }, [])
+
 
   useEffect(() => {
     getPediatriciansFromApi()
   }, [])
 
   return (
+    
+ <>
+ {isAuthenticated ? (
+   <>
     <div>
       {pediatricians.map(Doc => {
         return <Pediatrician 
@@ -35,7 +49,12 @@ const Page15 = () => {
         review={Doc.review}  
         />
       })}
-    </div>
+    </div> 
+    </>
+      ) : (
+        <Redirect to="/Unauthed" />
+      )}
+    </>
   )
 }
 
