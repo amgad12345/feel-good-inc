@@ -6,15 +6,13 @@ import { faSignInAlt, faUserMd } from '@fortawesome/free-solid-svg-icons'
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
 import '../index.css'
 
-const DoctorLogin = (props) => {
-
+const DoctorLogin = props => {
   const [successfullyCreated, setSuccessfullyCreated] = useState(false)
   const [usernameFromApi, setUsernameFromApi] = useState('')
- 
+
   const [user, setUser] = useState({
     username: '',
     password: '',
-    
   })
 
   const setUserName = e => {
@@ -30,26 +28,27 @@ const DoctorLogin = (props) => {
       }
     })
   }
-  
+
   const submitForm = async e => {
     e.preventDefault()
-    const resp = await axios.post('https://doc-new-api.herokuapp.com/Docauth/Doclogin', user)
+    const resp = await axios.post(
+      'https://doc-new-api.herokuapp.com/Docauth/Doclogin',
+      user
+    )
     console.log(resp.data)
     console.log(resp.data.doctorId)
     console.log(resp.data.token)
     console.log(resp.status)
-    
+
     localStorage.setItem('token', resp.data.token)
     localStorage.setItem('expiresAt', resp.data.expirationTime)
-  
+
     if (resp.status == 200) {
       setUsernameFromApi(resp.data.username)
-      
-      
-        window.location.href = `http://localhost:3000/SingleDoctorPortal/${resp.data.doctorId}`;
-    }     
-  }
 
+      window.location.href = `https://feel-good-inc-hp.netlify.com/SingleDoctorPortal/${resp.data.doctorId}`
+    }
+  }
 
   useEffect(() => {
     if (usernameFromApi) {
@@ -99,12 +98,12 @@ const DoctorLogin = (props) => {
             <div className="input-feild">
               <button className="log_in_btn">Log in</button>
               <span>
-              {' '}
-              <Link className="Doctor_Portal" to={"/DocSignUp"}>
                 {' '}
-                <h5>DOCTOR SIGN UP</h5>
-              </Link>{' '}
-            </span>
+                <Link className="Doctor_Portal" to={'/DocSignUp'}>
+                  {' '}
+                  <h5>DOCTOR SIGN UP</h5>
+                </Link>{' '}
+              </span>
             </div>
           </form>
         </div>
@@ -113,7 +112,4 @@ const DoctorLogin = (props) => {
   )
 }
 
-
-
-
-export default DoctorLogin 
+export default DoctorLogin

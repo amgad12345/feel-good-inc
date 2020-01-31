@@ -37,7 +37,7 @@ const App = props => {
     localStorage.removeItem('token')
     localStorage.removeItem('expiresAt')
     // navigate to the home route
-    window.location.href = 'http://localhost:3000/'
+    window.location.href = 'https://feel-good-inc-hp.netlify.com'
   }
 
   return (
@@ -105,7 +105,7 @@ const App = props => {
           </a>
         </section>
       </footer>
-      
+
       <Switch>
         <Route
           exact

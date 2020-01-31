@@ -35,18 +35,20 @@ const LogIn = props => {
 
   const submitForm = async e => {
     e.preventDefault()
-    const resp = await axios.post('https://doc-new-api.herokuapp.com/auth/login', user)
+    const resp = await axios.post(
+      'https://doc-new-api.herokuapp.com/auth/login',
+      user
+    )
     console.log(resp.data)
     console.log(resp.data.token)
     console.log(resp.status)
 
     localStorage.setItem('token', resp.data.token)
     localStorage.setItem('expiresAt', resp.data.expirationTime)
-   
+
     if (resp.status == 200) {
       props.setIsAuthed(true)
       setUsernameFromApi(resp.data.email)
-
     }
   }
 
