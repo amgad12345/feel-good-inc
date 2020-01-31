@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Courier+Prime|Girassol|Merriweather|Open+Sans|PT+Sans+Narrow|Roboto+Slab|Ubuntu&display=swap|Source+Sans+Pro');
+@import url('https://fonts.googleapis.com/css?family=Courier+Prime|Girassol|Merriweather|Open+Sans|PT+Sans+Narrow|Roboto+Slab|Ubuntu&display=swap|Source+Sans+Pro|=Bebas+Neue&display=swap|Anton');
 
 :root {
   font: 16px / 1 sans-serif;
@@ -57,6 +57,11 @@ header {
   font-family: 'Merriweather';
 }
 
+#Pick_Type{
+  font-family: 'Bebas+Neue&display=swap';
+  color:rgb(92, 90, 90);
+}
+
 .faSignInAlt{
   margin-left: 5px;
   font-size: 1.3rem;
@@ -105,6 +110,7 @@ header {
 
 .Cancelled_Appointment {
   color: red;
+  
 }
 
 .Signup_Msg {
@@ -318,8 +324,11 @@ button {
   background: linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
   background-color: #007dc1;
   border-radius: 3px;
+  text-align: center;
   border: 1px solid #124d77;
-  display: inline-block;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
   cursor: pointer;
   color: #ffffff;
   font-family: Arial;
@@ -328,6 +337,35 @@ button {
   text-decoration: none;
   text-shadow: 0px 1px 0px #154682;
 }
+
+
+
+#Pic_Doc {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px;
+  width : 300px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  height : 2.5rem
+}
+
+#Pic_Doc_Den {
+
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width : 300px;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  height : 2.5rem
+}
+
 .myButton:hover {
   background: linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
   background-color: #0061a7;
@@ -372,6 +410,26 @@ button {
   justify-content: center;
   width: 100%;
   
+}
+
+
+
+#Pick_Doc_Con{
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(242, 245, 247, 0.85);
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding-top: 0.5px;
+  padding-bottom: 1rem;
+ 
+  width: 400px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  justify-content: space-around;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .doctors {
@@ -507,27 +565,23 @@ button {
 }
 
 input {
-  background-color: rgba(95, 186, 233, 0.4);
+  background-color: rgba(95, 186, 233, 0.5);
   border: none;
   color: rgb(19, 9, 9);
-  padding: 15px 80px;
   text-align: center;
   text-decoration: none;
   text-transform: lowercase;
-  width:5rem;
-  height:0.4rem;
+  width:230px;
+  padding-bottom: 3px;
+  height:2.2rem;
   font-size: 13px;
-  -webkit-box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
-  box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   margin: 5px 20px 20px 20px;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+ 
 }
+
+
 
 .patient_info {
   background-color:rgba(95, 186, 233, 0.7);
@@ -535,9 +589,7 @@ input {
   
 }
 
- ::placeholder{
-color:  #474f53;
-}
+ 
 
 .reason{
   background-color:rgba(95, 186, 233, 0.7);
@@ -562,12 +614,7 @@ textarea {
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   margin: 5px 10px 20px 10px;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-
+  
   object-fit: cover;
   display: block;
   margin-left: auto;
@@ -828,6 +875,18 @@ justify-content: center;
     margin-right: auto;
     height: 350px;
     width: 280px;
+}
+
+#Pick_Doc_Con {
+  width: 300px;
+}
+
+#Pic_Doc_Den {
+  width: 250px;
+}
+
+#Pic_Doc {
+  width: 250px;
 }
 
 .white_signup{

@@ -8,8 +8,6 @@ import '../index.css'
 
 const DoctorLogin = (props) => {
 
-
-
   const [successfullyCreated, setSuccessfullyCreated] = useState(false)
   const [usernameFromApi, setUsernameFromApi] = useState('')
  
@@ -43,20 +41,14 @@ const DoctorLogin = (props) => {
     
     localStorage.setItem('token', resp.data.token)
     localStorage.setItem('expiresAt', resp.data.expirationTime)
-    // redirect to the secret
+  
     if (resp.status == 200) {
       setUsernameFromApi(resp.data.username)
-      //TODO store the toke in local storage
+      
       
         window.location.href = `http://localhost:3000/SingleDoctorPortal/${resp.data.doctorId}`;
-    }    
-
-
-   
+    }     
   }
-
-  
-
 
 
   useEffect(() => {

@@ -13,7 +13,7 @@ const SingleDoctor = props => {
   const [FirstN, SetFirstName] = useState('')
   const [Phone, SetPhone] = useState(0)
   const [lastN, SetlastName] = useState('')
-  const [app, GetApp] = useState([])
+  
 
   let cdate = new Date(appDate).toString('')
 
@@ -32,9 +32,7 @@ const SingleDoctor = props => {
     const resp = await axios.get(
       `https://doc-new-api.herokuapp.com/api/Doctor/getdoc-appointmen/${props.match.params.id}`
     )
-    console.log(resp.data)
 
-    // GetApp(resp.data)
 
     console.log(resp.data)
     let result = checkapp(resp.data.appointmentForms)
@@ -48,23 +46,17 @@ const SingleDoctor = props => {
     appointmentForms.map(element => {
       var d2 = new Date(element.appointmentDate)
       console.log(d1.getTime() + ' and ' + d2.getTime())
-      //console.log(appointmentForms[7])
-      //   console.log(Object.values(appointmentForms[1]))
       if (
-        //element.appointmentDate.getTime() == appDate.getTime()
-        // &&  element.appointmentDate >= appDate
-        d1.getTime() === d2.getTime()
-      ) {
+        d1.getTime() === d2.getTime()) {
         console.log('this date unavailable')
         setAppMessage(true)
         taken = true
       }
-      //console.log('checking', { appDate, element: element.appointmentDate })
     })
 
     return taken
   }
-  // .addHours(1)
+
   const getSingleDoctorApi = async () => {
     console.log('doctor id ' + props.match.params.id)
     const resp = await axios.get(
@@ -118,7 +110,7 @@ const SingleDoctor = props => {
   useEffect(() => {
     getSingleDoctorApi()
   }, [])
-  //cdate = (new Date(appDate)).toString();
+
   return (
     <>
       {isAuthenticated ? (
@@ -127,7 +119,7 @@ const SingleDoctor = props => {
             <h1 className="doctors_name_form">{doctor.name}</h1>
             <h4 className="doctors_info_form">Type: {doctor.type}</h4>
             <h4 className="doctors_info_form">
-              Phone Number:{' '}
+              Call Doctor:{' '}
               <a href={`tel:${doctor.phoneNumber}`}> {doctor.phoneNumber}</a>
             </h4>
             <h4 className="doctors_info_form">Email: {doctor.email}</h4>
@@ -163,7 +155,7 @@ const SingleDoctor = props => {
                 className="inp"
                 type="text"
                 className="patient_info"
-                placeholder="Phone Number "
+                placeholder="Phone Number"
                 value={Phone}
                 onChange={e => SetPhone(e.target.value)}
               />
@@ -228,7 +220,7 @@ const SingleDoctor = props => {
               </section>
               {showAppMessage && (
                 <div>
-                  <h1 className="Reason">date unavailable</h1>
+                  <h1 className = "Cancelled_Appointment">Date Unavailable</h1>
                 </div>
               )}
               <button

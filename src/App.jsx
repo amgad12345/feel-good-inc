@@ -34,12 +34,10 @@ const App = props => {
 
   const logout = () => {
     // Clear Access Token and ID Token from local storage
-    //localStorage.removeItem('access_token')
     localStorage.removeItem('token')
     localStorage.removeItem('expiresAt')
     // navigate to the home route
     window.location.href = 'http://localhost:3000/'
-    //   history.replace('http://localhost:3000/')
   }
 
   return (
@@ -107,7 +105,7 @@ const App = props => {
           </a>
         </section>
       </footer>
-
+      
       <Switch>
         <Route
           exact
